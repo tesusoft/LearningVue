@@ -4,18 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <script src="js/vue.js"></script>
+   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Learning Vue</title>
 </head>
 <body>
-    <p id="app">{{ sayHello }}</p>
+    <!-- <p id="app">{{ sayHello }}</p> -->
+    <div id="app">
+        <!-- <p>{{ greeting }}</p>
+        <p>Is it true: {{ isItTrue  ? 'Yes' : 'No'}}</p>
+        <p>{{ array[2] }}</p>
+        <p>{{ obj.car }}</p>
+        <p>{{ func() }}</p> -->
+        <p>{{ welcome() }}</p>
+    </div> 
 </body>
 <script>
-    new Vue({
-        el: "#app",
-        data:{
-            sayHello: "Welcome back to Vue after a long time."
-               }
-        })
+    // new Vue({
+    //     el: "#app",
+    //     data:{
+    //         sayHello: "Welcome back to Vue after a long time."
+    //            }
+    //     })
+//Now Im learning with Vue 3
+const date = new Date().toLocaleString();
+const App ={
+    data(){
+        return{
+            greeting: 'Hello Guys today is ' + date,
+            isItTrue: true,
+            array: ['Francis', 'Olumide', 'Oyetesu'],
+            obj:{
+                car:'Ferrari' 
+            },
+            func:()=>{
+                return "Message from function"
+            }
+        }
+    },
+    methods:{
+        welcome(){
+            const randomName = this.array[Math.floor(Math.random() * this.array.length)]
+            if(this.isItTrue){
+            // return 'Hello Guys!'
+            return `${this.greeting}, my name is ${randomName}`
+            // return greeting
+            }
+            return this.obj.car
+        }
+    }
+}
+
+Vue.createApp(App).mount('#app')
 
 </script>
 </html>

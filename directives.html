@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="js/vue.js"></script>
+   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Learning Vue | Working with Directives</title>
+</head>
+<body>
+    <div id="app">
+    <img v-bind:src="src" v-bind:alt="alt"/>
+    <hr>
+    <a v-bind:href="link">Go to Google</a>
+    <hr>
+    <p v-text="myText"></p>
+    <hr>
+     <p v-html="myHtml"></p>   
+    </div>
+</body>
+<script>
+    
+const App ={
+    data(){
+        return{
+            src:'https://picsum.photos/200/300',
+            alt:'Another Image',
+            link:'https://google.com',
+            myText:'Hello guys!!!',
+            myHtml:'<strong>My Html Block using Vue <code>echo welcome to PHP.</code></strong>'          
+
+        }
+    }
+}
+
+Vue.createApp(App).mount('#app')
+
+</script>
+<style>
+    div{
+        display: table;
+        border: 3px #ee1212 solid;
+        color: black
+    }
+    img{
+        margin: auto;
+        width: 100%;
+        height: 50%;
+    }
+</style>
+</html>
